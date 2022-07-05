@@ -1,0 +1,166 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    animation: taadaa 2s;
+}
+body{
+    background-color: blueviolet;
+}
+header{  width: 100vw;
+    height: 10vh;
+background: #0c0c0c;
+text-align: center;
+color: whitesmoke
+;
+font-size: 2.5rem;
+}
+.container{
+    width: 100vw;
+    height: 90vh;
+
+ 
+ 
+ 
+ 
+
+    background-size: cover;
+}
+.sear-today-container{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.form{
+    margin-top: 50px;
+    margin-bottom: 70px;
+    width: 500px;
+    height:250px;
+    border-radius: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+    background-color: blueviolet;
+    gap: 15px;
+    color: white;
+    padding: 20px;
+
+}
+.form h1{
+    font-size: 2.5rem;
+}
+.form  div{
+   width:  100%;
+   padding: 0 25px;
+   text-align: center;
+  
+ }
+ .form div input{
+    width:70%;
+    height: 30px;
+   margin-right: 5px;
+    border-radius: 50px;
+    text-align: center;
+ }
+ .form div button{
+    background-color: blueviolet;
+    border: none;
+    font-size: 2.5rem;
+    color: whitesmoke;
+  width: 50px;
+  padding-top: 10px;
+ }
+ .form div button:hover{
+  color:rgba(128, 0, 64, 0.493);
+  transition: 0.3s;
+  cursor: pointer;
+ }
+ .form button{
+    width: 50%;
+ 
+    background-color: blueviolet;
+    color: white;
+    margin: 0 auto;
+    font-size: 3rem;
+    border: none;
+ }
+ .form  button:hover{
+    color:rgba(128, 0, 64, 0.493);
+    transition: 0.3s;
+    cursor: pointer;
+   }
+   .today{
+    width: 400px;
+    height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+
+    background-color: rgb(22, 22, 22);
+    color: whitesmoke;
+    font-weight: bolder;
+    border-radius: 20px;
+ 
+   }
+   .today h1{
+    font-family: 'Dangrek', cursive;
+    font-size: 2rem;
+   }
+   .today p{
+    font-size: 1.6rem;
+    font-family: 'Dangrek', cursive;
+   }
+   .other-days{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    animation: taadaa 2s;
+   }
+   .day{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+width: 250px;
+height: 225px;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: space-around;
+color: white;
+font-size: 1.5rem;
+font-family: 'Dangrek', cursive;
+font-weight: bolder;
+border-radius: 20px;
+margin: 10px;
+   }
+
+   @keyframes taadaa { 
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+   @media only screen and (max-width: 900px) {
+  
+    .today{
+        font-size: 1.25rem;
+    }
+  }
+
+ 
+@media only screen and (max-width: 800px) {
+    .sear-today-container{
+        margin-top: 200px;
+     flex-direction: column;
+     margin-bottom: 200px;
+    }
+    header{
+        font-size:2rem ;
+    }
+  }
