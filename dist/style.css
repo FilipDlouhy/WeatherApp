@@ -136,7 +136,21 @@ font-weight: bolder;
 border-radius: 20px;
 margin: 10px;
    }
-
+   .hour{
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+width: 150px;
+height: 155px;
+display: flex;
+align-items: center;
+flex-direction: column;
+justify-content: space-around;
+color: white;
+font-size: 1.25rem;
+font-family: 'Dangrek', cursive;
+font-weight: bolder;
+border-radius: 20px;
+margin: 10px;
+   }
    @keyframes taadaa { 
     0% {
       opacity: 0;

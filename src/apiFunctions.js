@@ -14,17 +14,74 @@ function getAPIandDisplayIt(){
     .then(response=>response.json())
     .then(data=>{
  
-    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=hourly,minutely,current&appid=b19b9f3943e89c6e025fcbf777476da2` )
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely,current&appid=b19b9f3943e89c6e025fcbf777476da2` )
     .then(response=>response.json())
     .then(data=>{
-        
+    
         console.log(data)
         console.log(data.daily[0].feels_like.day)
-      fillOtherDays(data)
-      fillToday(data);
-     
+fillToday(data)
+let daysOrHours = document.querySelector("#d-h")
+if(daysOrHours.innerHTML === "DAYS"){
+  fillOtherDays(data)
+}else if(daysOrHours.innerHTML === "HOURS"){
+  fillHours(data)
+}
+
+
+
+      
     })
     })
+}
+function fillHours(data){
+  let unit = document.querySelector("#unit").innerHTML;
+  let daysDiv = document.querySelector(".other-days")
+  daysDiv.innerHTML = " ";
+  
+      for (let i = 0; i < 24; i++) {
+
+     let dt = data.hourly[i].dt
+    console.log(dt)
+        let day = new Date(dt*1000);
+        
+       let hourString = day.toUTCString().slice(17,19);
+      console.log(hourString)// 'Fri, 15 Jan 2021 04:32:29 GMT'
+      if(hourString === "01" ||hourString === "02"||hourString === "03"||hourString === "04"||hourString === "05"||hourString === "06"||hourString === "07"||hourString === "08"||hourString === "09"){
+hourString.slice(1,2);
+      }
+       let kelvin=  data.hourly[i].temp;
+  
+       let celsius = temperatureConverterKelvinToCelsius(kelvin);
+ 
+   let farenheit = temperatureConverterKelvinToFarenHeit(kelvin);
+   let roundCelsius = Math.round(celsius);
+   let roundFarenheit = Math.round(farenheit);
+  
+
+
+   let icon = getIcon(data.hourly[i].weather[0].main.toString())
+
+
+  let div = document.createElement("div");
+  
+       div.classList.add("hour");
+       if(unit === "C"){
+        div.innerHTML = `<h1>${hourString}H</h1>
+        <p>${roundCelsius}°C</p>
+   
+        <i class="fa-solid  ${icon}"></i>`;
+       }else if(unit === "F"){
+        div.innerHTML = `<h1>${hourString}H</h1>
+        <p>${roundFarenheit}F</p>
+   
+        <i class="fa-solid  ${icon}"></i>`;
+       }
+      
+  
+    
+       daysDiv.appendChild(div);
+        }
 }
 function fillOtherDays (data){
   let unit = document.querySelector("#unit").innerHTML;

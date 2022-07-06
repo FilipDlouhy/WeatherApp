@@ -5,6 +5,7 @@ let searchBTN = document.querySelector("#searchBTN");
 let otherDays = document.querySelector(".other-days")
 let today = document.querySelector(".today");
 let unit = document.querySelector("#unit");
+let daysOrHours = document.querySelector("#d-h")
 unit.addEventListener("click",()=>{
     today.innerHTML=" ";
     otherDays.innerHTML=" ";
@@ -26,4 +27,19 @@ searchBTN.addEventListener("click",()=>{
     apiFunctions.getData()
     apiFunctions.getAPIandDisplayIt();
 
+})
+daysOrHours.addEventListener("click",()=>{
+    if(daysOrHours.innerHTML === "DAYS"){
+        today.innerHTML=" ";
+        otherDays.innerHTML=" ";
+        apiFunctions.getData()
+        apiFunctions.getAPIandDisplayIt();
+        daysOrHours.innerHTML= "HOURS"
+    }else  if(daysOrHours.innerHTML === "HOURS"){
+        today.innerHTML=" ";
+        otherDays.innerHTML=" ";
+        apiFunctions.getData()
+        apiFunctions.getAPIandDisplayIt();
+        daysOrHours.innerHTML= "DAYS"
+    }
 })
